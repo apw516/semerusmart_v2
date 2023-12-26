@@ -79,7 +79,40 @@
                     <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Menu 2
+                            Riwayat Resep
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Kartu Stok Obat
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">GUDANG FARMASI</li>
+                <li class="nav-item">
+                    <a href="{{ route('Layananresep') }}" class="nav-link @if($menu == 'ep' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Stok Global
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Master Distributor
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Master Barang
                         </p>
                     </a>
                 </li>
