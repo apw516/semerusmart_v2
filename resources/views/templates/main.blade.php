@@ -115,6 +115,27 @@
     </div>
     <script>
         $(".preloader2").fadeOut();
+        function logout()
+        {
+            Swal.fire({
+                    title: "Anda yakin ingin keluar ?",
+                    text: "Pastikan semua pekerjaan sudah selesai ...",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ya, Keluar",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Sukses !",
+                            text: "Anda berhasil keluar",
+                            icon: "success"
+                        });
+                    }
+                });
+        }
     </script>
 </body>
 
