@@ -17,8 +17,8 @@
 </div>
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
+        <div class="row form_ermnya">
+            <div class="col-md-12">
                 <H5>Antrian Pasien</H5>
                 <div class="v_a_p">
 
@@ -59,13 +59,9 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>]
+                </table>
             </div>
-            <div class="col-md-9">
-                <div class="form_ermnya">
-
-                </div>
-            </div>
+          
         </div>
     </div>
 </section>
