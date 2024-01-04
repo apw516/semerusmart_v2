@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('public/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('public/adminlte/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('public/app.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('public/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -106,7 +106,7 @@
             @yield('container')
         </div>
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="https://adminlte.io">4PilarTechnology</a>.</strong>
+            <strong>Copyright &copy; 2023 <a href="https://semerusmart.id">empatPilarTechnology</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1.0.0
@@ -114,7 +114,7 @@
         </footer>
     </div>
     <script>
-        $(".preloader2").fadeOut();
+        // $(".preloader2").fadeOut();
         function logout()
         {
             Swal.fire({
