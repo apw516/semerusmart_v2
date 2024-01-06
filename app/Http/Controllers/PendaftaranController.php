@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ts_kunjungan;
+use App\Models\SatuSehatModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -22,6 +23,15 @@ class PendaftaranController extends Controller
             'pendidikan',
             'pekerjaan',
             'status_perkawinan'
+        ]));
+    }
+    public function Riwayat_pendaftaran()
+    {
+        $menu = "Riwayat Pendaftaran";
+        $now = $this->get_date();
+        return view('pendaftaran.index_riwayat_pendaftaran', compact([
+            'menu',
+            'now'
         ]));
     }
     public function Cari_provinsi(Request $request)
@@ -78,6 +88,13 @@ class PendaftaranController extends Controller
         $data_pasien = db::select('select date(tgl_entry) as tgl_masuk,jenis_kelamin,date(tgl_lahir) as tgl_lahir,no_rm,no_Bpjs,nik_bpjs,nama_px,fc_alamat(no_rm) as alamat from mt_pasien order by date(tgl_entry) Desc Limit 25');
         return view('pendaftaran.tabel_pasien', compact([
             'data_pasien'
+        ]));
+    }
+    public function Ambil_riwayat_pendaftaran(Request $request)
+    {
+        $data_kunjungan = db::select('SELECT *,fc_nama_px(no_rm) as nama_pasien,fc_alamat4(no_rm) as alamat,fc_nama_unit1(kode_unit) as nama_unit,fc_NAMA_PENJAMIN2(kode_penjamin) as nama_penjamin FROM ts_kunjungan WHERE DATE(tgl_masuk) BETWEEN ? AND ?',[$request->awal,$request->akhir]);
+        return view('pendaftaran.tabel_riwayat_kunjungan', compact([
+            'data_kunjungan'
         ]));
     }
     public function Cari_pasien(Request $request)
