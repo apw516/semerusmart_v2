@@ -6,6 +6,8 @@ use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\FarmasiController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LaboratoriumController;
+use App\Http\Controllers\LandingpageController;
+
 use App\Http\Controllers\PerawatController;
 
 
