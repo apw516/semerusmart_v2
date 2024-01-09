@@ -71,8 +71,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="modalpasienbaru" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="modalpasienbaru" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -83,7 +82,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form class="form_pasien_baru">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail4">NIK</label>
@@ -203,7 +202,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-success">Simpan</button>
+                        <button type="button" class="btn btn-success" onclick="simpanpasienbaru()">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -234,9 +233,11 @@
                 ktp = $('#nomorktp').val()
                 bpjs = $('#nomorbpjs').val()
                 nama = $('#namapasien').val()
-                ambildatapasien(rm,ktp,bpjs,nama)
+                ambildatapasien(rm, ktp, bpjs, nama)
             })
-            function ambildatapasien(rm = $('#nomorrm').val(),ktp = $('#nomorktp').val(),bpjs = $('#nomorbpjs').val(),nama = $('#namapasien').val()) {
+
+            function ambildatapasien(rm = $('#nomorrm').val(), ktp = $('#nomorktp').val(), bpjs = $('#nomorbpjs').val(), nama =
+                $('#namapasien').val()) {
                 spinner = $('#loader2')
                 spinner.show();
                 $.ajax({
@@ -249,7 +250,7 @@
                         nama,
                     },
                     url: '<?= route('ambildatapasien') ?>',
-                    error:function(response){
+                    error: function(response) {
                         spinner.hide();
                         alert('error')
                     },
@@ -259,7 +260,9 @@
                     }
                 });
             }
-            function cari_pasien(rm = $('#nomorrm').val(),ktp = $('#nomorktp').val(),bpjs = $('#nomorbpjs').val(),nama = $('#namapasien').val()) {
+
+            function cari_pasien(rm = $('#nomorrm').val(), ktp = $('#nomorktp').val(), bpjs = $('#nomorbpjs').val(), nama = $(
+                '#namapasien').val()) {
                 spinner = $('#loader2')
                 spinner.show();
                 $.ajax({
@@ -272,7 +275,7 @@
                         nama,
                     },
                     url: '<?= route('caripasien') ?>',
-                    error:function(response){
+                    error: function(response) {
                         spinner.hide();
                         alert('error')
                     },
@@ -356,6 +359,35 @@
                     }
                 });
             });
+            function simpanpasienbaru() {
+                var form_pasien_baru = $('.form_pasien_baru').serializeArray();
+                $.ajax({
+                    async: true,
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        form_pasien_baru: JSON.stringify(form_pasien_baru)
+                    },
+                    url: '<?= route('simpanpasienbaru') ?>',
+                    error: function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ooops....',
+                            text: 'Sepertinya ada masalah......',
+                            footer: ''
+                        })
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'OK',
+                            text: data.message,
+                            footer: ''
+                        })
+                    }
+                });
+            }
         </script>
     </section>
     <!-- /.content -->

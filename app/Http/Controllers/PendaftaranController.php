@@ -193,4 +193,14 @@ class PendaftaranController extends Controller
             die;
         }
     }
+    public function Simpan_pasien_baru(Request $request)
+    {
+        $data = json_decode($_POST['form_pasien_baru'], true);
+        foreach ($data as $nama) {
+            $index =  $nama['name'];
+            $value =  $nama['value'];
+            $dataSet[$index] = $value;
+        }
+        dd($dataSet);
+    }
 }
