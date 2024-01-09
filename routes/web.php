@@ -42,11 +42,10 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 //Farmasi Route
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
-=======
+
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
->>>>>>> main
 
 Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
 
@@ -58,7 +57,6 @@ Route::post('ambildatapasien', [PendaftaranController::class, 'Ambil_data_pasien
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-=======
 
 Route::post('ambil_riwayat_pendaftaran', [PendaftaranController::class, 'Ambil_riwayat_pendaftaran'])->name('ambil_riwayat_pendaftaran');
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
@@ -68,7 +66,6 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 //Farmasi Route
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
-=======
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
