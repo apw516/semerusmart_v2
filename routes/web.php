@@ -22,6 +22,7 @@ Route::get('DaftarPelayanan', [PendaftaranController::class, 'DaftarPelayanan'])
 
 
 
+
 //farmasi route
 Route::get('Layananresep', [FarmasiController::class, 'Layananresep'])->middleware('guest')->name('Layananresep');
 
