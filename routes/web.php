@@ -12,7 +12,7 @@ Route::get('dashboardlanding', [LandingController::class, 'Dashboard_landing'])-
 Route::get('jadwalpoli', [LandingController::class, 'Jadwal_poli'])->middleware('guest')->name('jadwalpoli');
 Route::get('kontakkami', [LandingController::class, 'Kontak_kami'])->middleware('guest')->name('kontakkami');
 Route::get('login', [LandingController::class, 'login'])->middleware('guest')->name('login');
-
+Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 
