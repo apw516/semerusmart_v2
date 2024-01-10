@@ -114,7 +114,7 @@
         </footer>
     </div>
     <script>
-        // $(".preloader2").fadeOut();
+        $(".preloader2").fadeOut();
         function logout()
         {
             Swal.fire({
