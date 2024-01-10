@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="{{ route('RiwayatPendaftaran')}}" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Riwayat Pendaftaran
@@ -76,10 +76,45 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Menu 2
+
+                            Riwayat Resep
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Kartu Stok Obat
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">GUDANG FARMASI</li>
+                <li class="nav-item">
+                    <a href="{{ route('Layananresep') }}" class="nav-link @if($menu == 'Stok Barang' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Stok Barang
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('indexmastersupplier')}}" class="nav-link @if($menu == 'Master Supplier' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Master Supplier
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('masterbarang')}}" class="nav-link @if($menu == 'Master Barang' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Master Barang
+
                         </p>
                     </a>
                 </li>
@@ -93,7 +128,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 2
@@ -102,7 +137,7 @@
                 </li>
                 <li class="nav-header">KASIR</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 1
@@ -110,7 +145,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 2
@@ -119,7 +154,7 @@
                 </li>
                 <li class="nav-header">REPORTING</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 1
@@ -127,7 +162,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 2
@@ -136,7 +171,7 @@
                 </li>
                 <li class="nav-header">DATA MASTER</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 1
@@ -144,7 +179,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran' ) active @endif">
+                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Menu 2
