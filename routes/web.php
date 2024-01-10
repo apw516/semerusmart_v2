@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\FarmasiController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\KasirController;
 
 //dashboard route
 Route::get('/', [LandingController::class, 'index'])->middleware('guest')->name('landing');
@@ -33,5 +34,7 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 Route::get('Layananresep', [FarmasiController::class, 'Layananresep'])->middleware('guest')->name('Layananresep');
 
 //kasir route
-Route::get('Kasir', [KasirController::class, 'Kasir'])->middleware('guest')->name('Kasir');
+Route::get('kasir', [KasirController::class, 'index'])->middleware('guest')->name('kasir');
+Route::post('get_patient_cashier', [KasirController::class, 'get_data_patient_cashier'])->name('get_patient_cashier');
+Route::post('search_patient_cashier', [KasirController::class, 'search_data_patient_cashier'])->name('search_patient_cashier');
 
