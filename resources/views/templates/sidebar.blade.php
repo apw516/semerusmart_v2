@@ -137,7 +137,7 @@
                 </li>
                 <li class="nav-header">KASIR</li>
                 <li class="nav-item">
-                    <a href="{{ route('Kasir') }}" class="text-success nav-link @if($menu == 'Kasir' ) active @endif">
+                    <a href="{{ route('kasir') }}" class="text-tile nav-link @if($menu == 'Kasir' ) active @endif">
                         <i class="nav-icon fas fa-money-bill"></i>
                         <p>
                             Pembayaran
