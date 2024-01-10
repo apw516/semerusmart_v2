@@ -54,7 +54,7 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 
 Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
 
->>>>>>> main
+
 Route::get('cariprovinsi', [PendaftaranController::class, 'Cari_provinsi'])->middleware('guest')->name('cariprovinsi');
 Route::get('carikabupaten', [PendaftaranController::class, 'Cari_kabupaten'])->middleware('guest')->name('carikabupaten');
 Route::get('carikecamatan', [PendaftaranController::class, 'Cari_kecamatan'])->middleware('guest')->name('carikecamatan');
@@ -87,7 +87,6 @@ Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_bara
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
->>>>>>> main
 
 
 //farmasi route
