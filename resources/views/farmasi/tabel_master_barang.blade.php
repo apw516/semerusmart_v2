@@ -7,8 +7,8 @@
                 <th>Nama barang</th>
                 <th>Dosis</th>
                 <th>Aturan pakai</th>
-                <th>Harga beli</th>
-                <th>HNA</th>
+                {{-- <th>Harga beli</th>
+                <th>HNA</th> --}}
             </thead>
             <tbody>
                 @foreach ($mt_barang as $b)
@@ -17,8 +17,8 @@
                         <td>{{ $b->nama_barang }}</td>
                         <td>{{ $b->dosis }}</td>
                         <td>{{ $b->aturan_pakai }}</td>
-                        <td>{{ $b->harga_beli }}</td>
-                        <td>{{ $b->hna }}</td>
+                        {{-- <td>{{ $b->harga_beli }}</td> --}}
+                        {{-- <td>{{ $b->hna }}</td> --}}
                     </tr>
                 @endforeach
             </tbody>

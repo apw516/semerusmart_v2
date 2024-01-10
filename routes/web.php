@@ -32,7 +32,11 @@ Route::post('simpanpasienbaru', [PendaftaranController::class, 'Simpan_pasien_ba
 
 //Farmasi Route
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
+Route::get('indexmastersupplier', [FarmasiController::class, 'Index_master_supplier'])->middleware('guest')->name('indexmastersupplier');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
+Route::post('ambil_master_supplier', [FarmasiController::class, 'Ambil_master_supplier'])->middleware('guest')->name('ambil_master_supplier');
+Route::post('simpanmasterbarang', [FarmasiController::class, 'Simpan_master_barang'])->middleware('guest')->name('simpanmasterbarang');
+Route::post('simpanmastersupplier', [FarmasiController::class, 'Simpan_master_supplier'])->middleware('guest')->name('simpanmastersupplier');
 
 
 //farmasi route

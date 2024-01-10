@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ts_kunjungan;
+use App\Models\mt_pasien;
 use App\Models\SatuSehatModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -92,7 +93,7 @@ class PendaftaranController extends Controller
     }
     public function Ambil_riwayat_pendaftaran(Request $request)
     {
-        $data_kunjungan = db::select('SELECT *,fc_nama_px(no_rm) as nama_pasien,fc_alamat4(no_rm) as alamat,fc_nama_unit1(kode_unit) as nama_unit,fc_NAMA_PENJAMIN2(kode_penjamin) as nama_penjamin FROM ts_kunjungan WHERE DATE(tgl_masuk) BETWEEN ? AND ?',[$request->awal,$request->akhir]);
+        $data_kunjungan = db::select('SELECT *,fc_nama_px(no_rm) as nama_pasien,fc_alamat4(no_rm) as alamat,fc_nama_unit1(kode_unit) as nama_unit,fc_NAMA_PENJAMIN2(kode_penjamin) as nama_penjamin FROM ts_kunjungan WHERE DATE(tgl_masuk) BETWEEN ? AND ?', [$request->awal, $request->akhir]);
         return view('pendaftaran.tabel_riwayat_kunjungan', compact([
             'data_kunjungan'
         ]));
@@ -124,7 +125,7 @@ class PendaftaranController extends Controller
         $data_pasien = DB::select('select no_rm,nama_px,date(tgl_lahir) as tgl_lahir,no_Bpjs,nik_bpjs,fc_alamat(no_rm) as alamat from mt_pasien where no_rm = ?', [$request->rm]);
         $riwayat_kunjungan = DB::select('select * ,fc_nama_unit1(kode_unit) as nama_unit from ts_kunjungan where no_rm = ?', [$request->rm]);
         $now = $this->get_date();
-        $mt_unit = DB::select('select * from mt_unit where group_unit = ?',['J']);
+        $mt_unit = DB::select('select * from mt_unit where group_unit = ?', ['J']);
         return view('pendaftaran.detail_pasien', compact([
             'data_pasien',
             'riwayat_kunjungan',
@@ -140,7 +141,7 @@ class PendaftaranController extends Controller
             $value =  $nama['value'];
             $dataSet[$index] = $value;
         }
-        if($dataSet['tujuan'] == '0'){
+        if ($dataSet['tujuan'] == '0') {
             $back = [
                 'kode' => 500,
                 'message' => 'Tujuan pelayanan belum dipilih !'
@@ -148,7 +149,7 @@ class PendaftaranController extends Controller
             echo json_encode($back);
             die;
         }
-        if($dataSet['penjamin'] == 'P02' && $dataSet['nomorbpjs'] == ''){
+        if ($dataSet['penjamin'] == 'P02' && $dataSet['nomorbpjs'] == '') {
             $back = [
                 'kode' => 500,
                 'message' => 'Nomor BPJS pasien belum diisi ...'
@@ -201,6 +202,56 @@ class PendaftaranController extends Controller
             $value =  $nama['value'];
             $dataSet[$index] = $value;
         }
-        dd($dataSet);
+        $rm = $this->get_rm();
+        $data_pasien = [
+            'no_rm' => $rm,
+            'no_Bpjs' => $dataSet['nomorasuransi'],
+            'nama_px' => $dataSet['namapasien'],
+            'jenis_kelamin' => $dataSet['jeniskelamin'],
+            'tempat_lahir' => $dataSet['tempatlahir'],
+            'tgl_lahir' => $dataSet['tanggallahir'],
+            'agama' => $dataSet['agama'],
+            'pendidikan' => $dataSet['pendidikan'],
+            'pekerjaan' => $dataSet['pekerjaan'],
+            'status_px' => $dataSet['statusperkawinan'],
+            'no_tlp' => $dataSet['notelp'],
+            'kewarganegaraan' => 'WNI',
+            'negara' => $dataSet['idnegara'],
+            'propinsi' => $dataSet['kodeprovinsi'],
+            'kabupaten' => $dataSet['kodekabupaten'],
+            'kecamatan' => $dataSet['kodekecamatan'],
+            'desa' => $dataSet['kodedesa'],
+            'alamat' => $dataSet['alamat'],
+            'no_hp' => '',
+            'tgl_entry' => $this->get_now(),
+            'pic' => '1',
+            'nik_bpjs' => $dataSet['nik'],
+            'kode_propinsi' => $dataSet['kodeprovinsi'],
+            'kode_kabupaten' => $dataSet['kodekabupaten'],
+            'kode_kecamatan' => $dataSet['kodekecamatan'],
+            'kode_desa' => $dataSet['kodedesa'],
+            'no_ktp' => $dataSet['nik'],
+        ];
+        mt_pasien::create($data_pasien);
+        $back = [
+            'kode' => 200,
+            'message' => 'Data Pasien berhasil disimpan...'
+        ];
+        echo json_encode($back);
+        die;
+    }
+    public function get_rm()
+    {
+        $y = DB::select('SELECT MAX(RIGHT(no_rm,6)) AS kd_max FROM mt_pasien');
+        if (count($y) > 0) {
+            foreach ($y as $k) {
+                $tmp = ((int) $k->kd_max) + 1;
+                $kd = sprintf("%06s", $tmp);
+            }
+        } else {
+            $kd = "0001";
+        }
+        date_default_timezone_set('Asia/Jakarta');
+        return date('y') . $kd;
     }
 }

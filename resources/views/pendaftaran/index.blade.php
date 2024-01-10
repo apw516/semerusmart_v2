@@ -22,6 +22,8 @@
                         class="bi bi-person-plus-fill mr-1 ml-1"></i> Pasien Baru</button>
                 <button class="btn btn-warning" data-toggle="modal" data-target="#modalantrian"><i
                         class="bi bi-list-ol mr-1 ml-1"></i> Antrian</button>
+                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#modalantrian"><i
+                        class="bi bi-list-ol mr-1 ml-1"></i> Riwayat Pendaftaran</button>
                 <div class="row mt-2">
                     <div class="col-md-12">
                         <div class="card">
@@ -84,15 +86,20 @@
                     <div class="modal-body">
                         <form class="form_pasien_baru">
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="inputEmail4">NIK</label>
                                     <input type="text" class="form-control" id="nik" name="nik"
                                         placeholder="Masukan Nomor Identitas Pasien ...">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="inputPassword4">Nomor Asuransi / Nomor BPJS</label>
                                     <input type="text" class="form-control" id="nomorasuransi" name="nomorasuransi"
                                         placeholder="Masukan Nomor Asuransi Pasein, jika ada ...">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Nomor Telephone</label>
+                                    <input type="text" class="form-control" id="notelp" name="notelp"
+                                        placeholder="Masukan Nomor Telephone / handphone, jika ada ...">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -115,7 +122,7 @@
                                     <select id="agama" name="agama" class="form-control">
                                         <option selected>Siahkan Pilih</option>
                                         @foreach ($agama as $ag)
-                                            <option value="ID">{{ $ag->agama }}</option>
+                                            <option value="{{ $ag->ID }}">{{ $ag->agama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -166,7 +173,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Alamat</label>
-                                <textarea type="text" class="form-control" id="inputAddress"
+                                <textarea type="text" class="form-control" id="alamat" name="alamat"
                                     placeholder="Contoh Format Penulisan : Dusun II,Rt 001 Rw 002"></textarea>
                             </div>
                             <div class="form-row">
@@ -175,7 +182,7 @@
                                     <select id="pekerjaan" name="pekerjaan" class="form-control">
                                         <option selected>Siahkan Pilih</option>
                                         @foreach ($pekerjaan as $pj)
-                                            <option value="ID">{{ $pj->pekerjaan }}</option>
+                                            <option value="{{ $pj->ID }}">{{ $pj->pekerjaan }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -184,7 +191,7 @@
                                     <select id="pendidikan" name="pendidikan" class="form-control">
                                         <option selected>Siahkan Pilih</option>
                                         @foreach ($pendidikan as $pd)
-                                            <option value="ID">{{ $pd->pendidikan }}</option>
+                                            <option value="{{ $pd->ID }}">{{ $pd->pendidikan }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -193,7 +200,7 @@
                                     <select id="statusperkawinan" name="statusperkawinan" class="form-control">
                                         <option selected>Siahkan Pilih</option>
                                         @foreach ($status_perkawinan as $sp)
-                                            <option value="ID">{{ $sp->status_kawin }}</option>
+                                            <option value="{{ $sp->ID }}">{{ $sp->status_kawin }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -359,8 +366,11 @@
                     }
                 });
             });
+
             function simpanpasienbaru() {
                 var form_pasien_baru = $('.form_pasien_baru').serializeArray();
+                spinner = $('#loader2')
+                spinner.show();
                 $.ajax({
                     async: true,
                     type: 'post',
@@ -371,6 +381,7 @@
                     },
                     url: '<?= route('simpanpasienbaru') ?>',
                     error: function(data) {
+                        spinner.hide();
                         Swal.fire({
                             icon: 'error',
                             title: 'Ooops....',
@@ -379,12 +390,15 @@
                         })
                     },
                     success: function(data) {
+                        spinner.hide();
                         Swal.fire({
                             icon: 'success',
                             title: 'OK',
                             text: data.message,
                             footer: ''
                         })
+                        ambildatapasien(rm = $('#nomorrm').val(), ktp = $('#nomorktp').val(), bpjs = $('#nomorbpjs')
+                            .val(), nama =  $('#namapasien').val())
                     }
                 });
             }

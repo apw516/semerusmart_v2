@@ -93,18 +93,18 @@
                 </li>
                 <li class="nav-header">GUDANG FARMASI</li>
                 <li class="nav-item">
-                    <a href="{{ route('Layananresep') }}" class="nav-link @if($menu == 'ep' ) active @endif">
+                    <a href="{{ route('Layananresep') }}" class="nav-link @if($menu == 'Stok Barang' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Stok Global
+                            Stok Barang
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
+                    <a href="{{ route('indexmastersupplier')}}" class="nav-link @if($menu == 'Master Supplier' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Master Distributor
+                            Master Supplier
                         </p>
                     </a>
                 </li>
