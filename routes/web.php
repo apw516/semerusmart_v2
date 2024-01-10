@@ -48,6 +48,14 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
 
+
+//farmasi route
+Route::get('Layananresep', [FarmasiController::class, 'Layananresep'])->middleware('guest')->name('Layananresep');
+
+//kasir route
+Route::get('Kasir', [KasirController::class, 'Kasir'])->middleware('guest')->name('Kasir');
+
+
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
@@ -108,3 +116,4 @@ Route::post('assesmenperawat', [PerawatController::class, 'assesmenperawat'])->m
 //penunjang
 Route::get('laboratorium', [LaboratoriumController::class, 'index'])->middleware('guest')->name('laboratorium');
 Route::post('detailorderlab', [LaboratoriumController::class, 'detailorderlab'])->middleware('guest')->name('detailorderlab');
+>>>>>>> main
