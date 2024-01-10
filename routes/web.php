@@ -29,7 +29,9 @@ Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pa
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
 
 
-
-
 //farmasi route
 Route::get('Layananresep', [FarmasiController::class, 'Layananresep'])->middleware('guest')->name('Layananresep');
+
+//kasir route
+Route::get('Kasir', [KasirController::class, 'Kasir'])->middleware('guest')->name('Kasir');
+

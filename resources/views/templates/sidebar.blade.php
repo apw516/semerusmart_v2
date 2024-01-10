@@ -135,10 +135,10 @@
                 </li>
                 <li class="nav-header">KASIR</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran' ) active @endif">
-                        <i class="nav-icon fas fa-archive"></i>
+                    <a href="{{ route('Kasir') }}" class="text-success nav-link @if($menu == 'Kasir' ) active @endif">
+                        <i class="nav-icon fas fa-money-bill"></i>
                         <p>
-                            Menu 1
+                            Pembayaran
                         </p>
                     </a>
                 </li>
