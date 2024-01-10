@@ -8,6 +8,7 @@ use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\KasirController;
 
 //dashboard route
 Route::get('/', [LandingController::class, 'index'])->middleware('guest')->name('landing');
@@ -29,7 +30,9 @@ Route::get('dashboard', [DashboardController::class, 'index'])->middleware('gues
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-
+Route::get('Kasir', [KasirController::class, 'index'])->middleware('guest')->name('kasir');
+Route::post('get_patient_cashier', [KasirController::class, 'get_data_patient_cashier'])->middleware('guest')->name('get_patient_cashier');
+Route::post('search_patient_cashier', [KasirController::class, 'search_patient_cashier'])->middleware('guest')->name('search_patient_cashier');
 //pendaftaran route
 Route::get('DaftarPelayanan', [PendaftaranController::class, 'DaftarPelayanan'])->middleware('guest')->name('DaftarPelayanan');
 Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
