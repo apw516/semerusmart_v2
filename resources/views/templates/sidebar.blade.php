@@ -51,18 +51,18 @@
                 </li>
                 <li class="nav-header">ERM</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran1' ) active @endif">
+                    <a href="{{ route('rmedokter')}}" class="nav-link @if($menu == 'RME DOKTER' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Menu 1
+                            RME DOKTER
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
+                    <a href="{{ route('rmeperawat')}}" class="nav-link @if($menu == 'RME PERAWAT' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Menu 2
+                            RME PERAWAT
                         </p>
                     </a>
                 </li>
@@ -79,6 +79,7 @@
                     <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
+
                             Riwayat Resep
                         </p>
                     </a>
@@ -113,15 +114,16 @@
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Master Barang
+
                         </p>
                     </a>
                 </li>
                 <li class="nav-header">PENUNJANG</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Pendaftaran' ) active @endif">
+                    <a href="{{ route('laboratorium') }}" class="nav-link @if($menu == 'Laboririum' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Menu 1
+                           LABORATORIUM
                         </p>
                     </a>
                 </li>
