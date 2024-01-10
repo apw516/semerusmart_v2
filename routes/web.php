@@ -1,3 +1,6 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\FarmasiController;
@@ -5,10 +8,14 @@ use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\KasirController;
 
+//dashboard route
+Route::get('/', [LandingController::class, 'index'])->middleware('guest')->name('landing');
+Route::get('dashboardlanding', [LandingController::class, 'Dashboard_landing'])->middleware('guest')->name('dashboardlanding');
+Route::get('jadwalpoli', [LandingController::class, 'Jadwal_poli'])->middleware('guest')->name('jadwalpoli');
 Route::get('kontakkami', [LandingController::class, 'Kontak_kami'])->middleware('guest')->name('kontakkami');
 Route::get('login', [LandingController::class, 'login'])->middleware('guest')->name('login');
-
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
@@ -23,7 +30,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->middleware('gues
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-
+Route::get('Kasir', [KasirController::class, 'Kasir'])->middleware('guest')->name('Kasir');
 //pendaftaran route
 Route::get('DaftarPelayanan', [PendaftaranController::class, 'DaftarPelayanan'])->middleware('guest')->name('DaftarPelayanan');
 Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
@@ -41,14 +48,6 @@ Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendafta
 //Farmasi Route
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
-
-
-//farmasi route
-Route::get('Layananresep', [FarmasiController::class, 'Layananresep'])->middleware('guest')->name('Layananresep');
-
-//kasir route
-Route::get('Kasir', [KasirController::class, 'Kasir'])->middleware('guest')->name('Kasir');
-
 
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
@@ -89,7 +88,6 @@ Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_bara
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-
 
 
 //farmasi route
