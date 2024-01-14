@@ -94,7 +94,7 @@
                 </li>
                 <li class="nav-header">GUDANG FARMASI</li>
                 <li class="nav-item">
-                    <a href="{{ route('Layananresep') }}" class="nav-link @if($menu == 'Stok Barang' ) active @endif">
+                    <a href="{{ route('stokbarang') }}" class="nav-link @if($menu == 'Stok Barang' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Stok Barang

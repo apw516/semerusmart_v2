@@ -39,10 +39,26 @@ class FarmasiController extends Controller
             'sediaan'
         ]));
     }
+    public function Stok_barang()
+    {
+        $menu = "Stok Barang";
+        $supplier = db::select('SELECT * from mt_supplier order by id desc');
+        return view('farmasi.index_stok_barang',compact([
+            'menu',
+            'supplier'
+        ]));
+    }
     public function Ambil_master_barang()
     {
         $mt_barang = db::select('SELECT * from mt_barang order by id desc LIMIT 12');
         return view('farmasi.tabel_master_barang', compact([
+            'mt_barang'
+        ]));
+    }
+    public function Cari_master_barang(Request $request)
+    {
+        $mt_barang = db::select("CALL cari_obat_dudy('$request->namabarang')");
+        return view('farmasi.pencarian_tabel_master_barang', compact([
             'mt_barang'
         ]));
     }

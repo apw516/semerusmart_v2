@@ -16,23 +16,13 @@ Route::get('dashboardlanding', [LandingController::class, 'Dashboard_landing'])-
 Route::get('jadwalpoli', [LandingController::class, 'Jadwal_poli'])->middleware('guest')->name('jadwalpoli');
 Route::get('kontakkami', [LandingController::class, 'Kontak_kami'])->middleware('guest')->name('kontakkami');
 Route::get('login', [LandingController::class, 'login'])->middleware('guest')->name('login');
-
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
 
-
-//pendaftaran route
-Route::get('DaftarPelayanan', [PendaftaranController::class, 'DaftarPelayanan'])->middleware('guest')->name('DaftarPelayanan');
-Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
-
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-Route::get('/', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('guest')->name('dashboard');
+//kasir route
 Route::get('Kasir', [KasirController::class, 'index'])->middleware('guest')->name('kasir');
 Route::post('get_patient_cashier', [KasirController::class, 'get_data_patient_cashier'])->middleware('guest')->name('get_patient_cashier');
 Route::post('search_patient_cashier', [KasirController::class, 'search_patient_cashier'])->middleware('guest')->name('search_patient_cashier');
+
 //pendaftaran route
 Route::get('DaftarPelayanan', [PendaftaranController::class, 'DaftarPelayanan'])->middleware('guest')->name('DaftarPelayanan');
 Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
@@ -41,55 +31,22 @@ Route::get('carikabupaten', [PendaftaranController::class, 'Cari_kabupaten'])->m
 Route::get('carikecamatan', [PendaftaranController::class, 'Cari_kecamatan'])->middleware('guest')->name('carikecamatan');
 Route::get('caridesa', [PendaftaranController::class, 'Cari_desa'])->middleware('guest')->name('caridesa');
 Route::post('ambildatapasien', [PendaftaranController::class, 'Ambil_data_pasien'])->name('ambildatapasien');
-
 Route::post('ambil_riwayat_pendaftaran', [PendaftaranController::class, 'Ambil_riwayat_pendaftaran'])->name('ambil_riwayat_pendaftaran');
 Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
 Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
 Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-
-//Farmasi Route
-Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
-Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
-
-Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
-Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
-Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-
-Route::get('RiwayatPendaftaran', [PendaftaranController::class, 'Riwayat_pendaftaran'])->middleware('guest')->name('RiwayatPendaftaran');
-
-
-Route::get('cariprovinsi', [PendaftaranController::class, 'Cari_provinsi'])->middleware('guest')->name('cariprovinsi');
-Route::get('carikabupaten', [PendaftaranController::class, 'Cari_kabupaten'])->middleware('guest')->name('carikabupaten');
-Route::get('carikecamatan', [PendaftaranController::class, 'Cari_kecamatan'])->middleware('guest')->name('carikecamatan');
-Route::get('caridesa', [PendaftaranController::class, 'Cari_desa'])->middleware('guest')->name('caridesa');
-Route::post('ambildatapasien', [PendaftaranController::class, 'Ambil_data_pasien'])->name('ambildatapasien');
-Route::post('ambil_riwayat_pendaftaran', [PendaftaranController::class, 'Ambil_riwayat_pendaftaran'])->name('ambil_riwayat_pendaftaran');
-Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
-Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
-Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-
 Route::post('simpanpasienbaru', [PendaftaranController::class, 'Simpan_pasien_baru'])->name('simpanpasienbaru');
 
+
 //Farmasi Route
 Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
-Route::get('indexmastersupplier', [FarmasiController::class, 'Index_master_supplier'])->middleware('guest')->name('indexmastersupplier');
+Route::get('stokbarang', [FarmasiController::class, 'Stok_barang'])->middleware('guest')->name('stokbarang');
 Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
+Route::post('cari_master_barang', [FarmasiController::class, 'Cari_master_barang'])->middleware('guest')->name('cari_master_barang');
+Route::get('indexmastersupplier', [FarmasiController::class, 'Index_master_supplier'])->middleware('guest')->name('indexmastersupplier');
 Route::post('ambil_master_supplier', [FarmasiController::class, 'Ambil_master_supplier'])->middleware('guest')->name('ambil_master_supplier');
 Route::post('simpanmasterbarang', [FarmasiController::class, 'Simpan_master_barang'])->middleware('guest')->name('simpanmasterbarang');
 Route::post('simpanmastersupplier', [FarmasiController::class, 'Simpan_master_supplier'])->middleware('guest')->name('simpanmastersupplier');
-
-
-Route::post('ambil_riwayat_pendaftaran', [PendaftaranController::class, 'Ambil_riwayat_pendaftaran'])->name('ambil_riwayat_pendaftaran');
-Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
-Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
-Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
-
-//Farmasi Route
-Route::get('masterbarang', [FarmasiController::class, 'Master_barang'])->middleware('guest')->name('masterbarang');
-Route::post('ambil_master_barang', [FarmasiController::class, 'Ambil_master_barang'])->middleware('guest')->name('ambil_master_barang');
-Route::post('caripasien', [PendaftaranController::class, 'Cari_pasien'])->name('caripasien');
-Route::post('ambildetailpasien', [PendaftaranController::class, 'Ambil_detail_pasien'])->name('ambildetailpasien');
-Route::post('simpanpendaftaran', [PendaftaranController::class, 'Simpan_pendaftaran'])->name('simpanpendaftaran');
 
 
 //farmasi route
