@@ -5,7 +5,7 @@
     </thead>
     <tbody>
         @foreach ($mt_barang as $n)
-            <tr class="pilihobat" namaobat="{{$n->nama_barang}}">
+            <tr class="pilihobat" namaobat="{{ $n->nama_barang }}" kode_barang="{{ $n->kode_barang }}">
                 <td>{{ $n->kode_barang }}</td>
                 <td>{{ $n->nama_barang }}</td>
             </tr>
@@ -27,20 +27,31 @@
     });
     $('#tabel_pencarian_mt_barang').on('click', '.pilihobat', function() {
         namaobat = $(this).attr('namaobat')
+        kode_barang = $(this).attr('kode_barang')
         var max_fields = 10;
         var wrapper = $(".v_list");
         var x = 1;
-        $(wrapper).append(
-            '<div class="form-row"><div class="form-group col-md-4"><label for="inputEmail4">Nama Obat</label><input readonly type="text" class="form-control" id="inputEmail4" value="' +
-            namaobat +
-            '"></div><div class="form-group col-md-1"><label for="inputPassword4">Jumlah</label><input type="text" class="form-control" id="jumlah" name="jumlah" value="0"></div><div class="form-group col-md-4"><label for="inputPassword4">Aturan Pakai</label><input type="text" class="form-control" id="aturanpakai" name="aturanpakai"></div><i class="bi bi-x-square remove_field form-group col-md-1 text-danger" status="" jenisracik="non-racikan""></i></div>'
-        );
-        $(wrapper).on("click", ".remove_field", function(e) { //user click on remove
-            status = $(this).attr('status')
-            $('#' + namaobat).removeAttr('status', true)
-            e.preventDefault();
-            $(this).parent('div').remove();
-            x--;
-        })
+        if (x < max_fields) {
+            x++; //text box increment
+            $.ajax({
+                  type: 'post',
+                  data: {
+                      _token: "{{ csrf_token() }}",
+                      namaobat,
+                      kode_barang,
+                  },
+                  url: '<?= route('add_obat_po') ?>',
+                  success: function(response) {
+                      $(wrapper).append(response);
+                      $(wrapper).on("click", ".remove_field", function(e) { //user click on remove
+                          status = $(this).attr('status')
+                          $('#' + kode_barang).removeAttr('status', true)
+                          e.preventDefault();
+                          $(this).parent('div').remove();
+                          x--;
+                      })
+                  }
+              });
+        }
     });
 </script>
