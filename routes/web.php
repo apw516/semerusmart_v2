@@ -56,9 +56,23 @@ Route::post('simpanmastersupplier', [FarmasiController::class, 'Simpan_master_su
 Route::post('simpan_po', [FarmasiController::class, 'Simpan_po_masuk'])->middleware('auth')->name('simpan_po');
 Route::post('add_obat_po', [FarmasiController::class, 'Add_obat_po'])->middleware('auth')->name('add_obat_po');
 Route::post('ambil_riwayat_po_header', [FarmasiController::class, 'Ambil_riwayat_po_header'])->middleware('auth')->name('ambil_riwayat_po_header');
+Route::post('ambil_riwayat_po', [FarmasiController::class, 'Ambil_riwayat_po'])->middleware('auth')->name('ambil_riwayat_po');
+Route::get('riwayatpo_masuk', [FarmasiController::class, 'Riwayat_po_masuk'])->middleware('auth')->name('riwayatpo_masuk');
 Route::post('ambil_riwayat_stok_sediaan', [FarmasiController::class, 'Ambil_riwayat_stok_sediaan'])->middleware('auth')->name('ambil_riwayat_stok_sediaan');
 Route::post('ambil_kartu_stok', [FarmasiController::class, 'Ambil_kartu_stok'])->middleware('auth')->name('ambil_kartu_stok');
 Route::post('detail_po', [FarmasiController::class, 'Detail_po'])->middleware('auth')->name('detail_po');
+Route::post('detail_riwayat_po', [FarmasiController::class, 'Detail_riwayat_po'])->middleware('auth')->name('detail_riwayat_po');
+Route::get('kartustok_farmasi', [FarmasiController::class, 'Kartu_stok_farmasi'])->middleware('auth')->name('kartustok_farmasi');
+Route::get('riwayatresep_farmasi', [FarmasiController::class, 'Riwayat_resep_farmasi'])->middleware('auth')->name('riwayatresep_farmasi');
+Route::post('ambil_riwayat_resep', [FarmasiController::class, 'Ambil_riwayat_resep'])->middleware('auth')->name('ambil_riwayat_resep');
+Route::post('ambil_data_kunjungan_pasien', [FarmasiController::class, 'Ambil_data_kunjungan_pasien'])->middleware('auth')->name('ambil_data_kunjungan_pasien');
+Route::post('ambil_detail_orderan', [FarmasiController::class, 'Ambil_detail_orderan'])->middleware('auth')->name('ambil_detail_orderan');
+Route::post('cari_obat_reguler', [FarmasiController::class, 'Cari_obat_reguler'])->middleware('auth')->name('cari_obat_reguler');
+Route::post('cari_obat_racik', [FarmasiController::class, 'Cari_obat_racik'])->middleware('auth')->name('cari_obat_racik');
+Route::post('pilih_obat_reguler', [FarmasiController::class, 'Pilih_obat_reguler'])->middleware('auth')->name('pilih_obat_reguler');
+Route::post('simpandraft_racik', [FarmasiController::class, 'Simpan_draft_racik'])->middleware('auth')->name('simpandraft_racik');
+Route::post('simpan_racikan', [FarmasiController::class, 'Simpan_racikan'])->middleware('auth')->name('simpan_racikan');
+Route::post('simpan_transaksi_obat', [FarmasiController::class, 'Simpan_transaksi_obat'])->middleware('auth')->name('simpan_transaksi_obat');
 
 
 //farmasi route

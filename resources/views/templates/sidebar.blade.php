@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
+                    <a href="{{ route('riwayatresep_farmasi')}}" class="nav-link @if($menu == 'Riwayatresep' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
 
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @if($menu == 'Riwayat Pendaftaran1' ) active @endif">
+                    <a href="{{ route('kartustok_farmasi')}}" class="nav-link @if($menu == 'kartustok' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Kartu Stok Obat
@@ -97,10 +97,26 @@
                     <a href="{{ route('stokbarang') }}" class="nav-link @if($menu == 'Stok Barang' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Stok Barang
+                            PO Masuk
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('riwayatpo_masuk') }}" class="nav-link @if($menu == 'Riwayat PO' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Riwayat PO
+                        </p>
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a href="{{ route('stokbarang') }}" class="nav-link @if($menu == 'Stok Sediaan' ) active @endif">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Stok Sediaan
+                        </p>
+                    </a>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('indexmastersupplier')}}" class="nav-link @if($menu == 'Master Supplier' ) active @endif">
                         <i class="nav-icon fas fa-archive"></i>

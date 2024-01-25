@@ -19,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Stok Barang</h1>
+                    <h1 class="m-0">PO Masuk</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Stok Barang</li>
+                        <li class="breadcrumb-item active">PO Masuk</li>
                     </ol>
                 </div>
             </div><!-- /.row -->
